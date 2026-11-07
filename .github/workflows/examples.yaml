@@ -19,6 +19,11 @@ jobs:
           run: |
             uv venv && source .venv/bin/activate
             uv pip install ".[examples]"
+        - name: Cache CIFAR-10 dataset.
+          uses: actions/cache@v4
+          with:
+            path: data/cifar-10-batches-py
+            key: cifar10-batches-py-v1
         - name: Detect GPU availability.
           id: gpu_check
           run: |
