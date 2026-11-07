@@ -1,11 +1,11 @@
 name: examples
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   examples:
     name: "Python 3.12"
-    runs-on: 4-core-ubuntu-gpu-t4
+    runs-on: ubuntu-24.04  # fork-only: GPU larger runner not available in forks
     steps:
         - uses: actions/checkout@v4
         - name: Set up and update uv.
