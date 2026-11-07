@@ -11,7 +11,7 @@ jobs:
         - name: Set up and update uv.
           run: |
             curl -LsSf https://astral.sh/uv/install.sh | sh
-            source $HOME/.local/bin/env
+            export PATH="$HOME/.local/bin:$PATH"; echo "$HOME/.local/bin" >> "$GITHUB_PATH"  # fork-only: uv 0.13 installer no longer writes ~/.local/bin/env
             uv self update
         - name: Install Python.
           run: uv python install 3.12
